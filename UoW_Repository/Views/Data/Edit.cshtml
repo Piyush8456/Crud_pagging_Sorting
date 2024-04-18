@@ -1,0 +1,258 @@
+﻿@model UoW_Repository.Models.ViewModel.EmployeesViewModel
+
+@{
+    /**/
+
+    ViewBag.Title = "Edit";
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(45deg, #49a09d, #5f2c82);
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background: linear-gradient(45deg, #49a09d, #5f2c82);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        color: #333;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type="radio"] {
+        margin-right: 5px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .text-danger {
+        color: #dc3545;
+    }
+
+    .text-success {
+        color: #28a745;
+    }
+
+    .btn {
+        color: #333;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        background-color: #f8f9fa;
+        border: 1px solid #ccc;
+    }
+
+        .btn:hover {
+            background-color: #e9ecef;
+        }
+
+    .form-control-feedback {
+        display: none;
+        color: #dc3545;
+        font-size: 12px;
+        margin-top: 4px;
+    }
+
+    .has-error .form-control {
+        border-color: #dc3545;
+    }
+
+    .has-error .form-control-feedback {
+        display: block;
+    }
+
+    .come-from-modal.left .modal-dialog,
+    .come-from-modal.right .modal-dialog {
+        position: fixed;
+        margin: auto;
+        width: 320px;
+        height: 100%;
+        -webkit-transform: translate3d(0%, 0, 0);
+        -ms-transform: translate3d(0%, 0, 0);
+        -o-transform: translate3d(0%, 0, 0);
+        transform: translate3d(0%, 0, 0);
+    }
+
+    .come-from-modal.left .modal-content,
+    .come-from-modal.right .modal-content {
+        height: 100%;
+        overflow-y: auto;
+        border-radius: 0px;
+    }
+
+    .come-from-modal.left .modal-body,
+    .come-from-modal.right .modal-body {
+        padding: 15px 15px 80px;
+    }
+
+    .come-from-modal.right.fade .modal-dialog {
+        right: -320px;
+        -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+        -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+        -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+        transition: opacity 0.3s linear, right 0.3s ease-out;
+    }
+
+    .come-from-modal.right.fade.in .modal-dialog {
+        right: 0;
+    }
+    .btn-md {
+        padding: 6px 12px !important;
+   
+        font-size: 11px !important;
+        line-height: 1.5 !important;
+        border-radius: 3px !important;
+    }
+    .btn1 {
+        margin-left: 10px !important;
+    }
+</style>
+<h2 style="color:white">Update Employee</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true)
+
+    @Html.HiddenFor(x => x.employeeId)
+    <div class="form-horizontal">
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.firstName, new { @class = "control-label col-md-2", style = "padding-left: 80px;" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.firstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "text-warning" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lastName, new { @class = "control-label col-md-2", style = "padding-left: 80px;" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.lastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "text-warning" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gender, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                Male
+                @Html.RadioButtonFor(m => m.gender, "Male")
+                Female
+                @Html.RadioButtonFor(m => m.gender, "Female")
+                @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-warning" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.age, new { @class = "control-label col-md-2", style = "padding-left: 80px;" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.age, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.age, "", new { @class = "text-warning" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.mobileNumber, new { @class = "control-label col-md-2", style = "padding-left: 80px;" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.mobileNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mobileNumber, "", new { @class = "text-warning" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.email, new { @class = "control-label col-md-2", style = "padding-left: 80px;" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-warning" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.employeeType, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.employeeType, new SelectList(
+                    new List<SelectListItem>
+                    {
+                        new SelectListItem { Value = "1", Text = "FrontEnd Developer" },
+                        new SelectListItem { Value = "2", Text = "BackEnd Developer" },
+                        new SelectListItem { Value = "3", Text = "Designer" },
+                        new SelectListItem { Value = "4", Text = "Tester" },
+                        new SelectListItem { Value = "5", Text = "BDE" },
+                        new SelectListItem { Value = "6", Text = "HR" }
+                    }, "Value", "Text", Model.employeeType), "Select Employee Type", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.employeeType, "", new { @class = "text-warning" })
+            </div>
+        </div>
+
+        <div class="form-horizontal">
+            <div class="form-group">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.joiningDate, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.joiningDate, new { htmlAttributes = new { @class = "form-control", type = "date", @Value = Model.joiningDate.ToString("yyyy-MM-dd"), style="margin-left:8px" } })
+                        @Html.ValidationMessageFor(model => model.joiningDate, "", new { @class = "text-warning" })
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="form-group btn1">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-success btn-md" />
+            @Html.ActionLink("Cancel", "Sp_data", null, new { @class = "btn btn-md" })
+        </div>
+    </div>
+
+}
+
+
+

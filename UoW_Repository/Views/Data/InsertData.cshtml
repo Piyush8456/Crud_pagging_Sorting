@@ -1,0 +1,322 @@
+﻿@model UoW_Repository.Models.ViewModel.EmployeesViewModel
+
+<h2 style="color:white">Insert Employee Data</h2>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(45deg, #49a09d, #5f2c82);
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background: linear-gradient(45deg, #49a09d, #5f2c82);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        color: #333;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type="radio"] {
+        margin-right: 5px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .text-danger {
+        color: #dc3545;
+    }
+
+    .text-success {
+        color: #28a745;
+    }
+
+    .btn {
+        color: #333;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        background-color: #f8f9fa;
+        border: 1px solid #ccc;
+    }
+
+        .btn:hover {
+            background-color: #e9ecef;
+        }
+
+    .form-control-feedback {
+        display: none;
+        color: #dc3545;
+        font-size: 12px;
+        margin-top: 4px;
+    }
+
+    .has-error .form-control {
+        border-color: #dc3545;
+    }
+
+    .has-error .form-control-feedback {
+        display: block;
+    }
+
+    .come-from-modal.left .modal-dialog,
+    .come-from-modal.right .modal-dialog {
+        position: fixed;
+        margin: auto;
+        width: 320px;
+        height: 100%;
+        -webkit-transform: translate3d(0%, 0, 0);
+        -ms-transform: translate3d(0%, 0, 0);
+        -o-transform: translate3d(0%, 0, 0);
+        transform: translate3d(0%, 0, 0);
+    }
+
+    .come-from-modal.left .modal-content,
+    .come-from-modal.right .modal-content {
+        height: 100%;
+        overflow-y: auto;
+        border-radius: 0px;
+    }
+
+    .come-from-modal.left .modal-body,
+    .come-from-modal.right .modal-body {
+        padding: 15px 15px 80px;
+    }
+
+    .come-from-modal.right.fade .modal-dialog {
+        right: -320px;
+        -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+        -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+        -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+        transition: opacity 0.3s linear, right 0.3s ease-out;
+    }
+
+    .come-from-modal.right.fade.in .modal-dialog {
+        right: 0;
+    }
+</style>
+
+
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+
+
+@using (Html.BeginForm("InsertData", "Data", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+
+        <div class="form-horizontal">
+            @*<div class="form-group">
+            @Html.LabelFor(model => model.employeeId, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.employeeId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.employeeId, "", new { @class = "text-warning" })
+            </div>
+        </div>*@
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.empCardID, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.empCardID, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.empCardID, "", new { @class = "text-warning" })
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.firstName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.firstName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "text-warning" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.lastName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.lastName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "text-warning" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.mobileNumber, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.mobileNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.mobileNumber, "", new { @class = "text-warning" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.age, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.age, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.age, "", new { @class = "text-warning" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.email, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-warning" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.gender, new { @class = "col-md-2 control-label", })
+                <div class="col-md-10">
+                    <div>
+                        @Html.RadioButtonFor(model => model.gender, "Male", new { id = "maleRadio" })
+                        <label for="maleRadio">Male</label>
+                    </div>
+                    <div>
+                        @Html.RadioButtonFor(model => model.gender, "Female", new { id = "femaleRadio" })
+                        <label for="femaleRadio">Female</label>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-warning" })
+                </div>
+            </div>
+
+
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.employeeType, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.employeeType, Model.employeeTypes, "Select Employee Type", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.employeeType, "", new { @class = "text-warning" })
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group" style="">
+                @Html.LabelFor(model => model.joiningDate, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.joiningDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.joiningDate, "", new { @class = "text-warning" })
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center">
+            <div class="row">
+                <div class="col">
+                    @using (Html.BeginForm("InsertData", "Data", FormMethod.Post))
+                    {
+                        <input type="submit" id="openModalBtn" value="Create" class="btn btn-primary" style="margin-right:20px" />
+                    }
+                    @Html.ActionLink("Cancel", "Sp_Data", "Data", null, new { @class = "btn btn-secondary" })
+                </div>
+            </div>
+        </div>
+
+
+
+        @*<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="1000" style="position: absolute; top: 0; right: 0;">
+                <div class="toast-header">
+                    <strong class="mr-auto">Success</strong>
+                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="toast-body">
+                    Data inserted successfully!
+                </div>
+            </div>*@
+
+
+    </div>
+
+
+    <div>
+        @Html.ActionLink("Back To Home", "GetEmployees")
+    </div>
+
+
+}
+
+
+
+
+<script>
+     $(function () {
+           var msg = '@ViewData["result"]';
+              if (msg == '1')
+              {
+                 alert("User Details Inserted Successfully");
+                 window.location.href = "@Url.Action("Sp_Data", "Data")";
+              }
+    });
+</script>
+
+
+
+@section scripts{
+
+    <script src="~/scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
+}
+
+

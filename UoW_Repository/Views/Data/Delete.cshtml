@@ -1,0 +1,83 @@
+﻿@model UoW_Repository.Models.Employees
+    @{
+        ViewBag.Title = "Delete";
+    }
+
+    <h2>Delete</h2>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Employee</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dd>
+                @Html.DisplayFor(model => model.employeeId);
+            </dd>
+
+            <dd>
+                @Html.DisplayFor(model => model.firstName);
+            </dd>
+
+            <dd>
+                @Html.DisplayFor(model => model.lastName);
+            </dd>
+
+            <dd>
+                @Html.DisplayFor(model => model.age);
+            </dd>
+
+            <dd>
+                @Html.DisplayFor(model => model.gender);
+            </dd>
+
+            <dd>
+                @Html.DisplayFor(model => model.mobileNumber);
+            </dd>
+
+            <dd>
+                @Html.DisplayFor(model => model.email);
+            </dd>
+
+            <dd>
+                @if (Model.employeeType == 1)
+                {
+                    <p> FrontEnd Devloper</p>
+                }
+                @if (Model.employeeType == 2)
+                {
+                    <p> BackEnd Devloper</p>
+                }
+
+                @if (Model.employeeType == 3)
+                {
+                    <p>Designer</p>
+                }
+                @if (Model.employeeType == 4)
+                {
+                    <p>Tester</p>
+                }
+                @if (Model.employeeType == 5)
+                {
+                    <p>BDE</p>
+                }
+                @if (Model.employeeType == 6)
+                {
+                    <p>HR</p>
+                }
+            </dd>
+
+            <dd>
+                @Html.DisplayFor(model => model.joiningDate);
+            </dd>
+        </dl>
+
+        @using (Html.BeginForm("DeleteConfirmed", "Data", new { id = Model.employeeId }, FormMethod.Post))
+        {
+            <div class="form-actions">
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                @Html.ActionLink("Cancel", "Sp_Data", null, new { @class = "btn" })
+            </div>
+        }
+    </div>
